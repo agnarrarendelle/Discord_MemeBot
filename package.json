@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:ts": "tsc -w",
-    "start:js": "nodemon --delay 10 build/index.js",
-    "start": "concurrently npm:start:*"
+    "dev-start:ts": "tsc -w",
+    "dev-start:js": "nodemon --delay 10 build/index.js",
+    "dev-start": "concurrently npm:dev-star:*",
+    "start": "node --experimental-specifier-resolution=node build/index.js",
+    "build": "tsc",
+    "postinstall": "npm run build"
   },
   "author": "",
   "license": "ISC",
