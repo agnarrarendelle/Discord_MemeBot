@@ -1,13 +1,14 @@
-import axios from "axios";
 import discord from "discord.js";
 import subNames from "./subNames.json" assert { type: "json" };
-import { getImage, getPost } from "random-reddit";
+import { getPost } from "random-reddit";
 
+//enum that stores all bot commands
 enum commands {
   meme = "meme",
   pmeme = "pmeme",
 }
 
+//enum that records minimum and maximum numbers that the bot can fetch at one time
 enum sendTimeRange{
   max = 8,
   min = 1
