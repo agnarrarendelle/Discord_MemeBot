@@ -52,11 +52,14 @@ const setUpCommandReact = async (message: discord.Message) => {
 await sendImgMultipleTimes(command, message, sendTimes)
 };
 
+
+//parse messages entered by users and return the first string after !
 const getCommand = (content: string): string => {
   const command = content.replace(prefix, "").split(" ")[0];
   return command;
 };
 
+//split messages by space and return the second string
 const getSecondArgument = (msg: string) => {
   return msg.split(" ")[1];
 };
