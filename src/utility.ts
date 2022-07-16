@@ -100,6 +100,8 @@ const getAndSendImg = async (subName: string, message: discord.Message) => {
   message.channel.send(`From r/${subreddit}\n${title}\nhttps://www.reddit.com/${permalink}\n${url}`);
 };
 
+
+//a function that calls getandSendImg 1 or more times based on users' request
 const sendImgMultipleTimes = async (
   command: string,
   message: discord.Message,
