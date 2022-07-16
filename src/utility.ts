@@ -74,6 +74,8 @@ const getRanmdomSubName = (subNames: string[]) => {
   return subNames[getRandomInt(0, subNames.length)];
 };
 
+
+//get a random sub name based on command enter by users
 const getSubName = (command: string) => {
   let subName = "";
   switch (command) {
