@@ -14,20 +14,32 @@ enum sendTimeRange{
   min = 1
 }
 
+//all commands starts with !
 const prefix = "!";
+//function called when users enter any message
 const setUpCommandReact = async (message: discord.Message) => {
+  //if messages do not start with !, end the function
   if (!message.content.startsWith(prefix)) return;
+  //get the first string that users enter after !
   let command = getCommand(message.content);
+  //check if the string in in commands enum, 
+  //and notify the users that the commmand is invalid if not
   if (!(command in commands)) {
     message.channel.send("Invalid command");
     return;
   }
 
+  //get the second string that users after command and try to parse it as integer
   let secondArgument = parseInt(getSecondArgument(message.content));
+  //how many images will be fetched at one time
   let sendTimes = sendTimeRange.min
+  //if the second string is an integer, set snedTimes to the second string
   if (Number.isInteger(secondArgument)) {
     sendTimes = secondArgument
   }
+
+  //check if the sendTimes is within 1 and 8,
+  //and notify users that the number is out of range if not
   if(sendTimes > sendTimeRange.max){
     message.channel.send("Maximum send times exceeded. Please enter a smaller value");
     return
@@ -36,6 +48,7 @@ const setUpCommandReact = async (message: discord.Message) => {
     message.channel.send("Please enter a positive integer less than 8");
     return
   }
+  //call the function to send images k times
 await sendImgMultipleTimes(command, message, sendTimes)
 };
 
