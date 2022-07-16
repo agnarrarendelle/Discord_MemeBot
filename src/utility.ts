@@ -64,10 +64,12 @@ const getSecondArgument = (msg: string) => {
   return msg.split(" ")[1];
 };
 
+//generate a random integer between min and max
 const getRandomInt = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
+//get a random subreddit name in the array that stores subreddit names
 const getRanmdomSubName = (subNames: string[]) => {
   return subNames[getRandomInt(0, subNames.length)];
 };
