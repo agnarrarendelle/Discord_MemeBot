@@ -91,6 +91,9 @@ const getSubName = (command: string) => {
   return subName;
 };
 
+//make a request via random-reddit api with the sub reddit name
+//and extract infomation such as post image url and link from the response
+//finally, send the message that contains those information to the chat 
 const getAndSendImg = async (subName: string, message: discord.Message) => {
   const postUrl = await getPost(subName);
   const { title, url, subreddit, permalink } = postUrl;
