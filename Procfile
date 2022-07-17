@@ -1,2 +1,2 @@
 web: npm start
-worker: node build/index.js
+worker: node  --experimental-specifier-resolution=node  build/index.js
