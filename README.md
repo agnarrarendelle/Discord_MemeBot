@@ -24,6 +24,7 @@ All Commands Need to Start with !
 + How Many Images to Fetch at Once
   + An integer number between 1 and 8
 <br>
+
 ## Example
 <img src="./img/example.gif" alt="alt text" title="image Title" />
 
