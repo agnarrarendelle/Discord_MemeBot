@@ -23,7 +23,7 @@ const setUpCommandReact = async (message: discord.Message) => {
   //get the first string that users enter after !
   const userInput = message.content.trim()
   const userCommands = getCommands(userInput)
-  let command = userCommands(0);
+  let command = userCommands(0).replace(prefix, "");
   //check if the string in in commands enum, 
   //and notify the users that the commmand is invalid if not
   if (!(command in commands)) {
