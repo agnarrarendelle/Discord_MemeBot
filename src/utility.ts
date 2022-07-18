@@ -22,7 +22,8 @@ const setUpCommandReact = async (message: discord.Message) => {
   if (!message.content.startsWith(prefix)) return;
   //get the first string that users enter after !
   const userInput = message.content.trim()
-  let command = getCommand(userInput);
+  const userCommands = getCommands(userInput)
+  let command = userCommands(0);
   //check if the string in in commands enum, 
   //and notify the users that the commmand is invalid if not
   if (!(command in commands)) {
@@ -31,7 +32,7 @@ const setUpCommandReact = async (message: discord.Message) => {
   }
 
   //get the second string that users after command and try to parse it as integer
-  let secondArgument = parseInt(getSecondArgument(userInput));
+  let secondArgument = parseInt(userCommands(1));
   //how many images will be fetched at one time
   let sendTimes = sendTimeRange.min
   //if the second string is an integer, set snedTimes to the second string
@@ -53,6 +54,13 @@ const setUpCommandReact = async (message: discord.Message) => {
 await sendImgMultipleTimes(command, message, sendTimes)
 };
 
+
+const getCommands =(userInput:string)=>{
+  const inputSplited = userInput.split(/\s+/)
+  return (index:number)=>{
+    return inputSplited[index]
+  }
+}
 
 //parse messages entered by users and return the first string after !
 const getCommand = (content: string): string => {
