@@ -28,4 +28,11 @@ All Commands Need to Start with !
 ## Example
 <img src="./img/example.gif" alt="alt text" title="image Title" />
 
+## Note
+Please note that as the token number is hidden and can only be seen on Heroku website where the bot is hosted,
+you would need to create a private token number yourself at Discord Developer Website and
+replace the ```process.env.TOKEN``` in ```src/index.ts``` file with your token yourself 
+if you want to run the bot locally.
+[Please refer to this website for more information](https://www.writebots.com/discord-bot-token/)
+
 
